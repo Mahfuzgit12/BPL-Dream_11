@@ -1,6 +1,22 @@
+import { useState } from 'react';
 import { FaFlag, FaUser } from 'react-icons/fa';
 
-const card = ({player}) => {
+const Card = ({player, setCoin , coin , selectedPlayer, setSelectedPlayer}) => {
+  const [isSelected,setIsselected]=useState(false);
+
+  const handleChoosePlayer = () =>{ 
+  
+    let newCoin=coin - player.price;
+    if(newCoin >= 0){
+      setCoin(newCoin);
+    }else{
+      alert("Not enough coin to purchase this playe");
+      return;
+    }
+    alert(`${player.playername} is selected`);
+     setIsselected(true);
+     setSelectedPlayer([...selectedPlayer,player]);
+  };
   return (
     <div>
         <div className="card bg-base-100 w-96 shadow-sm">
@@ -16,7 +32,7 @@ const card = ({player}) => {
                   <FaFlag></FaFlag>
             <p>{player.playercountry}</p>
           </div>
-          <button className='btn btn-ghost '>{player.playertype}</button>
+          <button className='btn neutral '>{player.playertype}</button>
           </div>
             <div className="divider"></div>
             <h2 className='font-bold'>Rating : {player.rating}</h2>
@@ -26,7 +42,9 @@ const card = ({player}) => {
             </div>
             <div className='flex justify-between items-center font-bold'>
               <p className='font-semibold'>Price:{player.price}</p>
-              <button className='btn btn-ghost'>Choose Player</button>
+              <button className='btn btn-ghost btn-active btn-success btn-outline' onClick={handleChoosePlayer} 
+              disabled = {isSelected ? true : false }>
+                {isSelected === true ? "Selected" : "Buy Player"}</button>
             </div>
           
         </div>
@@ -35,4 +53,4 @@ const card = ({player}) => {
   );
 };
 
-export default card;
+export default Card;
