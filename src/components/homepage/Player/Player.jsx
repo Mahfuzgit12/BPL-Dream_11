@@ -15,7 +15,7 @@ const Player = ({ playerPromise, setCoin , coin}) => {
 <div className='flex justify-between gap-4 items-center mb-5'>
        
         {
-          selectedType === "Available" ?  <h2>Available PLayers</h2> : <h2>Selected Players(2/10)</h2>
+          selectedType === "Available" ?  <h2>Available PLayers</h2> : <h2>Selected Players({selectedPlayer.length}/{players.length})</h2>
         }
       <div>
         <button
@@ -23,10 +23,10 @@ const Player = ({ playerPromise, setCoin , coin}) => {
          className={`btn ${selectedType ==="Available" ? "bg-[#E7FE29]" : "bg-amber-50"}  rounded-r-none text-black`}>Available</button>
         <button
         onClick={() => setSelectedType("Selected")}
-        className={`btn ${selectedType ==="Selected" ? "bg-[#E7FE29]" : "bg-amber-50" } rounded-l-none  text-black`}>Selected</button>
+        className={`btn ${selectedType ==="Selected" ? "bg-[#E7FE29]" : "bg-amber-50" } rounded-l-none  text-black`}>Selected {selectedPlayer.length}</button>
       </div>
 </div>
-      {  selectedType === "Available" ? <AvailablePlayers players={players} setCoin={setCoin} coin={coin} selectedPlayer={selectedPlayer} setSelectedPlayer={setSelectedPlayer}></AvailablePlayers> : <SelectedPlayer selectedPlayer={selectedPlayer} ></SelectedPlayer>}
+      {  selectedType === "Available" ? <AvailablePlayers players={players} setCoin={setCoin} coin={coin} selectedPlayer={selectedPlayer} setSelectedPlayer={setSelectedPlayer}></AvailablePlayers> : <SelectedPlayer selectedPlayer={selectedPlayer} setSelectedPlayer={setSelectedPlayer} setCoin={setCoin} coin={coin} ></SelectedPlayer>}
     </div>
   );
 };
