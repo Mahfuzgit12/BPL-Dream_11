@@ -1,0 +1,102 @@
+[
+  {
+    "playername": "Shakib Al Hasan",
+    "playercountry": "Bangladesh",
+    "playertype": "All-Rounder",
+    "rating": 9.8,
+    "battingstyyle": "Left-hand Bat",
+    "bowlingstyle": "Left-arm Orthodox",
+    "price": 1800000,
+    "imglink": "https://i.ibb.co.com/v4nBMfbN/images.jpg"
+  },
+  {
+    "playername": "Tamim Iqbal",
+    "playercountry": "Bangladesh",
+    "playertype": "Batsman",
+    "rating": 9.2,
+    "battingstyyle": "Left-hand Bat",
+    "bowlingstyle": "Right-arm Off Break",
+    "price": 1200000,
+    "imglink": "https://i.ibb.co.com/v4nBMfbN/images.jpg"
+  },
+  {
+    "playername": "Mushfiqur Rahim",
+    "playercountry": "Bangladesh",
+    "playertype": "Wicketkeeper Batsman",
+    "rating": 9.0,
+    "battingstyyle": "Right-hand Bat",
+    "bowlingstyle": "Right-arm Off Break",
+    "price": 1100000,
+    "imglink": "https://i.ibb.co.com/v4nBMfbN/images.jpg"
+  },
+  {
+    "playername": "Mahmudullah Riyad",
+    "playercountry": "Bangladesh",
+    "playertype": "All-Rounder",
+    "rating": 8.8,
+    "battingstyyle": "Right-hand Bat",
+    "bowlingstyle": "Right-arm Off Break",
+    "price": 1000000,
+    "imglink": "https://i.ibb.co.com/v4nBMfbN/images.jpg"
+  },
+  {
+    "playername": "Virat Kohli",
+    "playercountry": "India",
+    "playertype": "Batsman",
+    "rating": 9.9,
+    "battingstyyle": "Right-hand Bat",
+    "bowlingstyle": "Right-arm Medium",
+    "price": 2000000,
+    "imglink": "https://i.ibb.co.com/v4nBMfbN/images.jpg"
+  },
+  {
+    "playername": "Rohit Sharma",
+    "playercountry": "India",
+    "playertype": "Batsman",
+    "rating": 9.7,
+    "battingstyyle": "Right-hand Bat",
+    "bowlingstyle": "Right-arm Off Break",
+    "price": 1900000,
+    "imglink": "https://i.ibb.co.com/v4nBMfbN/images.jpg"
+  },
+  {
+    "playername": "Jasprit Bumrah",
+    "playercountry": "India",
+    "playertype": "Bowler",
+    "rating": 9.6,
+    "battingstyyle": "Right-hand Bat",
+    "bowlingstyle": "Right-arm Fast",
+    "price": 1750000,
+    "imglink": "https://i.ibb.co.com/v4nBMfbN/images.jpg"
+  },
+  {
+    "playername": "Babar Azam",
+    "playercountry": "Pakistan",
+    "playertype": "Batsman",
+    "rating": 9.5,
+    "battingstyyle": "Right-hand Bat",
+    "bowlingstyle": "Right-arm Off Break",
+    "price": 1700000,
+    "imglink": "https://i.ibb.co.com/v4nBMfbN/images.jpg"
+  },
+  {
+    "playername": "Ben Stokes",
+    "playercountry": "England",
+    "playertype": "All-Rounder",
+    "rating": 9.4,
+    "battingstyyle": "Left-hand Bat",
+    "bowlingstyle": "Right-arm Fast Medium",
+    "price": 1650000,
+    "imglink": "https://i.ibb.co.com/v4nBMfbN/images.jpg"
+  },
+  {
+    "playername": "Kane Williamson",
+    "playercountry": "New Zealand",
+    "playertype": "Batsman",
+    "rating": 9.3,
+    "battingstyyle": "Right-hand Bat",
+    "bowlingstyle": "Right-arm Off Break",
+    "price": 1600000,
+    "imglink": "https://i.ibb.co.com/v4nBMfbN/images.jpg"
+  }
+]
