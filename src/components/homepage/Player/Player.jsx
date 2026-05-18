@@ -4,29 +4,55 @@ import SelectedPlayer from './../SelectedPlayer/SelectedPlayer';
 
 const Player = ({ playerPromise, setCoin , coin}) => {
   const players = use(playerPromise);
-  
 
   const [selectedType,setSelectedType] = useState("Available");
-
   const [selectedPlayer,setSelectedPlayer] = useState([]);
 
   return (
-    <div className='container mx-auto my-15'>
-<div className='flex justify-between gap-4 items-center mb-5'>
-       
-        {
-          selectedType === "Available" ?  <h2>Available PLayers</h2> : <h2>Selected Players({selectedPlayer.length}/{players.length})</h2>
-        }
-      <div>
-        <button
-        onClick={ () => setSelectedType("Available")}
-         className={`btn ${selectedType ==="Available" ? "bg-[#E7FE29]" : "bg-amber-50"}  rounded-r-none text-black`}>Available</button>
-        <button
-        onClick={() => setSelectedType("Selected")}
-        className={`btn ${selectedType ==="Selected" ? "bg-[#E7FE29]" : "bg-amber-50" } rounded-l-none  text-black`}>Selected {selectedPlayer.length}</button>
+    <div className='container mx-auto py-12 px-4'>
+      <div className='flex flex-col sm:flex-row justify-between gap-6 items-start sm:items-center mb-8'>
+        <div>
+          {selectedType === "Available" ? (
+            <h2 className='text-3xl md:text-4xl font-bold text-black'>Available Players</h2>
+          ) : (
+            <h2 className='text-3xl md:text-4xl font-bold text-black'>
+              Selected Players
+              <span className='text-[#E7FE29] ml-2'>({selectedPlayer.length}/{players.length})</span>
+            </h2>
+          )}
+          <p className='text-gray-600 mt-2'>Pick your ultimate cricket team</p>
+        </div>
+
+        <div className='flex gap-2 bg-gray-100 p-1 rounded-lg shadow-sm'>
+          <button
+            onClick={() => setSelectedType("Available")}
+            className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 ${
+              selectedType === "Available"
+                ? 'bg-[#E7FE29] text-black shadow-md'
+                : 'bg-transparent text-gray-700 hover:text-black'
+            }`}
+          >
+            Available
+          </button>
+          <button
+            onClick={() => setSelectedType("Selected")}
+            className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 ${
+              selectedType === "Selected"
+                ? 'bg-[#E7FE29] text-black shadow-md'
+                : 'bg-transparent text-gray-700 hover:text-black'
+            }`}
+          >
+            Selected <span className='ml-1 font-bold'>({selectedPlayer.length})</span>
+          </button>
+        </div>
       </div>
-</div>
-      {  selectedType === "Available" ? <AvailablePlayers players={players} setCoin={setCoin} coin={coin} selectedPlayer={selectedPlayer} setSelectedPlayer={setSelectedPlayer}></AvailablePlayers> : <SelectedPlayer selectedPlayer={selectedPlayer} setSelectedPlayer={setSelectedPlayer} setCoin={setCoin} coin={coin} ></SelectedPlayer>}
+
+      <div>
+        {selectedType === "Available"
+          ? <AvailablePlayers players={players} setCoin={setCoin} coin={coin} selectedPlayer={selectedPlayer} setSelectedPlayer={setSelectedPlayer} />
+          : <SelectedPlayer selectedPlayer={selectedPlayer} setSelectedPlayer={setSelectedPlayer} setCoin={setCoin} coin={coin} />
+        }
+      </div>
     </div>
   );
 };

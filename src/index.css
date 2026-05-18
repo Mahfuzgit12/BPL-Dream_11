@@ -1,2 +1,17 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* Custom global tweaks */
+:root {
+	--page-bg: linear-gradient(180deg,#f8fafc 0%, #ffffff 60%);
+}
+
+body {
+	background: var(--page-bg);
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+
+.container {
+	max-width: 1200px;
+}

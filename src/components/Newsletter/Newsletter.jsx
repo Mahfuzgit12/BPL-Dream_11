@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Send } from 'lucide-react';
+import { Mail, Send, Sparkles } from 'lucide-react';
 import { toast } from 'react-toastify';
 
 const Newsletter = () => {
@@ -8,7 +8,7 @@ const Newsletter = () => {
 
   const handleSubscribe = (e) => {
     e.preventDefault();
-    if (!email) {
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
       toast.error('Please enter a valid email');
       return;
     }
@@ -17,69 +17,71 @@ const Newsletter = () => {
       setIsLoading(false);
       setEmail('');
       toast.success('Successfully subscribed to newsletter!');
-    }, 1000);
+    }, 900);
   };
 
   return (
-    <div className="w-full py-20 px-4 md:px-8 bg-gradient-to-b from-slate-900 via-slate-950 to-black relative">
-      <div className="max-w-4xl mx-auto">
+    <section className="w-full py-16 px-4 md:px-8 bg-[#020617]">
+      <div className="max-w-5xl mx-auto">
+        <div className="relative rounded-3xl overflow-hidden">
+          {/* Glow decor */}
+          <div className="absolute -left-28 -top-20 w-72 h-72 bg-gradient-to-tr from-[#6EE7F6]/30 via-[#8B5CF6]/20 to-[#FDE68A]/10 blur-3xl opacity-70 transform rotate-12" />
+          <div className="absolute -right-28 -bottom-20 w-72 h-72 bg-gradient-to-bl from-[#FDE68A]/20 via-[#8B5CF6]/20 to-[#60A5FA]/10 blur-3xl opacity-60 transform -rotate-12" />
 
-        {/* Newsletter Container */}
-        <div className="relative z-10 backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 md:p-16 shadow-2xl">
-          {/* Cricket Decorative Elements */}
-          <div className="absolute top-6 right-6 text-yellow-400 opacity-20 text-6xl">🏏</div>
-          <div className="absolute bottom-6 left-6 text-blue-400 opacity-20 text-5xl">⚡</div>
-
-          {/* Content */}
-          <div className="relative text-center space-y-8">
-            {/* Header */}
-            <div className="space-y-4">
-              <div className="flex justify-center mb-6">
-                <div className="bg-gradient-to-r from-blue-500 to-yellow-400 p-3 rounded-full">
-                  <Mail className="w-8 h-8 text-white" />
+          <div className="relative z-20 backdrop-blur-lg bg-white/6 border border-white/8 rounded-3xl p-8 md:p-12 shadow-[0_10px_30px_rgba(2,6,23,0.6)]">
+            <div className="flex flex-col lg:flex-row items-center gap-8">
+              <div className="flex-1 text-center lg:text-left">
+                <div className="inline-flex items-center justify-center bg-gradient-to-r from-[#60A5FA] to-[#FDE68A] p-3 rounded-full shadow-md">
+                  <Mail className="w-6 h-6 text-[#020617]" />
                 </div>
+                <h2 className="mt-6 text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">
+                  Subscribe to our <span className="text-yellow-300">Newsletter</span>
+                </h2>
+                <p className="mt-3 text-gray-300 max-w-xl">
+                  Get the latest updates and fantasy cricket news — match tips, team insights, and exclusive offers.
+                </p>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-yellow-300 bg-clip-text text-transparent">
-                Subscribe to Our Newsletter
-              </h2>
-              <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mx-auto">
-                Get the latest updates, exclusive fantasy cricket tips, and insider news directly to your inbox
-              </p>
+
+              <form onSubmit={handleSubscribe} className="flex-1 w-full">
+                <div className="flex flex-col sm:flex-row items-center gap-3">
+                  <label className="sr-only">Email</label>
+                  <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full px-5 py-4 rounded-2xl bg-white/6 border border-white/10 placeholder-gray-300 text-white focus:outline-none focus:ring-2 focus:ring-yellow-300 transition duration-200 backdrop-blur-sm"
+                  />
+
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-gradient-to-r from-[#FDE68A] via-[#60A5FA] to-[#8B5CF6] text-[#021025] font-semibold shadow-lg hover:scale-105 transform transition disabled:opacity-70"
+                  >
+                    {isLoading ? (
+                      <span className="animate-spin">⏳</span>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        <span>Subscribe</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                <div className="mt-4 flex items-center justify-between text-xs text-gray-400">
+                  <span>We respect your privacy. Unsubscribe anytime.</span>
+                  <div className="flex items-center gap-2 text-yellow-300">
+                    <Sparkles className="w-4 h-4" />
+                    <span>Premium insights</span>
+                  </div>
+                </div>
+              </form>
             </div>
-
-            {/* Email Form */}
-            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300 hover:bg-white/15"
-              />
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="px-8 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-500 to-yellow-400 hover:from-blue-600 hover:to-yellow-500 transition-all duration-300 transform hover:scale-105 disabled:opacity-75 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
-              >
-                {isLoading ? (
-                  <span className="animate-spin">⏳</span>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    <span className="hidden sm:inline">Subscribe</span>
-                  </>
-                )}
-              </button>
-            </form>
-
-            {/* Privacy Text */}
-            <p className="text-sm text-gray-400 font-light">
-              We respect your privacy. Unsubscribe at any time.
-            </p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
