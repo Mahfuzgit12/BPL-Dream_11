@@ -23,23 +23,25 @@ const Player = ({ playerPromise, setCoin , coin}) => {
           <p className='text-gray-600 mt-2'>Pick your ultimate cricket team</p>
         </div>
 
-        <div className='flex gap-2 bg-gray-100 p-1 rounded-lg shadow-sm'>
+        <div className='flex gap-3 bg-gray-100/80 p-2 rounded-full shadow-lg border border-white/40'>
           <button
             onClick={() => setSelectedType("Available")}
-            className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 ${
+            aria-pressed={selectedType === "Available"}
+            className={`px-7 py-3 rounded-full font-semibold uppercase tracking-wide shadow-lg transition-all duration-200 ${
               selectedType === "Available"
-                ? 'bg-[#E7FE29] text-black shadow-md'
-                : 'bg-transparent text-gray-700 hover:text-black'
+                ? 'bg-gradient-to-r from-yellow-300 to-yellow-500 text-black shadow-yellow-300/50 scale-[1.02]'
+                : 'bg-white text-gray-800 hover:bg-yellow-100 hover:text-black'
             }`}
           >
             Available
           </button>
           <button
             onClick={() => setSelectedType("Selected")}
-            className={`px-6 py-2 rounded-md font-semibold transition-all duration-200 ${
+            aria-pressed={selectedType === "Selected"}
+            className={`px-7 py-3 rounded-full font-semibold uppercase tracking-wide shadow-lg transition-all duration-200 ${
               selectedType === "Selected"
-                ? 'bg-[#E7FE29] text-black shadow-md'
-                : 'bg-transparent text-gray-700 hover:text-black'
+                ? 'bg-gradient-to-r from-yellow-300 to-yellow-500 text-black shadow-yellow-300/50 scale-[1.02]'
+                : 'bg-white text-gray-800 hover:bg-yellow-100 hover:text-black'
             }`}
           >
             Selected <span className='ml-1 font-bold'>({selectedPlayer.length})</span>
