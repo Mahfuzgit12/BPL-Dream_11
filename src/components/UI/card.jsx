@@ -84,12 +84,16 @@ const Card = ({player, setCoin , coin , selectedPlayer, setSelectedPlayer}) => {
               <div className='text-2xl font-bold text-black'>৳ {player.price.toLocaleString()}</div>
             </div>
             <button
+              type="button"
               className={`px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-300 flex-shrink-0 ${
                 isSelected
                   ? 'bg-green-100 text-green-700 cursor-not-allowed border border-green-300'
                   : 'bg-[#E7FE29] text-black hover:bg-[#d4e01f] hover:shadow-lg active:scale-95 border border-[#E7FE29]'
               }`}
-              onClick={handleChoosePlayer}
+              onClick={(e) => {
+                e.preventDefault();
+                handleChoosePlayer();
+              }}
               disabled={isSelected}
             >
               {isSelected ? '✓ Added' : 'Buy'}
